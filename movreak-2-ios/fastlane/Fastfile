@@ -1,0 +1,101 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "2.8.0"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+	ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    cocoapods
+    
+  end
+  
+  desc "Runs all the tests"
+  lane :test do
+    scan
+  end
+
+  desc "Create ad hoc build"
+  lane :beta do
+
+    plist_file = './Movreak/Info.plist'
+
+    # Get the build and version numbers from the project's plist file
+    build_number = get_info_plist_value(
+        path: plist_file,
+        key: 'CFBundleVersion',
+    )
+    version_number = get_info_plist_value(
+        path: plist_file,
+        key: 'CFBundleShortVersionString',
+    )
+
+    ipa_file_name = "Movreak#{version_number}(#{build_number}).ipa"
+
+    match(type: "adhoc") # more information: https://codesigning.guide
+
+    # Build your app - more options available
+    gym(
+        scheme: "Movreak",
+        output_name: ipa_file_name
+    )
+
+    # You can also use other beta testing services here (run `fastlane actions`)
+    # hockey(
+  		# api_token: "779332390ffa4b9dbd365818e2330ed8",
+  		# notes: "Changelog"
+	# )
+
+    testfairy(
+        api_key: "773bb7f5890d6c3120fcb46439d571b98c66b32b",
+        ipa: "#{ipa_file_name}"
+    )
+
+    # sh("curl https://upload.diawi.com/ -F token='7jAAnjz2NizIbREEBBMNvibxlDyvBVbn8khz84w70l' -F file=/Users/bayuwy/Projects/Movreak-Swift3/Movreak/#{ipa_file_name} -F callback_emails='bayu@dycode.com'")
+  end
+
+  desc "Deploy a new version to the App Store"
+  lane :release do
+    # match(type: "appstore")
+    # snapshot
+    gym # Build your app - more options available
+    deliver(force: true)
+    # frameit
+  end
+
+  # You can define as many lanes as you want
+  
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    slack(
+    	message: "Successfully deployed new App Update."
+    )
+  end
+
+  error do |lane, exception|
+    slack(
+    	message: exception.message,
+    	success: false
+    )
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
+# All available actions: https://docs.fastlane.tools/actions
+
+# fastlane reports which actions are used
+# No personal data is recorded. Learn more at https://github.com/fastlane/enhancer

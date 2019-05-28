@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Core Sans R 25 Light.otf">
+            <string>CoreSansR25Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WritingCellId" rowHeight="65" id="KGk-i7-Jjw" customClass="WritingViewCell" customModule="Movreak" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EOg-y7-bfx">
+                        <rect key="frame" x="15" y="15" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="GWG-5D-zlL"/>
+                            <constraint firstAttribute="height" constant="35" id="hvW-N7-TJw"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Writing..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ls8-xA-wnb">
+                        <rect key="frame" x="65" y="15" width="240" height="35"/>
+                        <fontDescription key="fontDescription" name="CoreSansR25Light" family="Core Sans R" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="EOg-y7-bfx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="8dh-ps-5Ux"/>
+                    <constraint firstAttribute="trailing" secondItem="Ls8-xA-wnb" secondAttribute="trailing" constant="15" id="8jw-5X-TK7"/>
+                    <constraint firstItem="Ls8-xA-wnb" firstAttribute="leading" secondItem="EOg-y7-bfx" secondAttribute="trailing" constant="15" id="D4y-Wl-pcO"/>
+                    <constraint firstItem="Ls8-xA-wnb" firstAttribute="bottom" secondItem="EOg-y7-bfx" secondAttribute="bottom" id="oUv-XF-fwC"/>
+                    <constraint firstAttribute="bottom" secondItem="EOg-y7-bfx" secondAttribute="bottom" constant="15" id="oa4-fY-NEN"/>
+                    <constraint firstItem="Ls8-xA-wnb" firstAttribute="top" secondItem="EOg-y7-bfx" secondAttribute="top" id="s6T-Cz-vR2"/>
+                    <constraint firstItem="EOg-y7-bfx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="w0p-Ce-QFK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="userImageView" destination="EOg-y7-bfx" id="c5Q-Kn-AUY"/>
+                <outlet property="userTitleLabel" destination="Ls8-xA-wnb" id="vQF-s2-fJ1"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="156.5"/>
+        </tableViewCell>
+    </objects>
+</document>

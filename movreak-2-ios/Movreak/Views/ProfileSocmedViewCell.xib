@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Core Sans R 35 Regular.otf">
+            <string>CoreSansR35Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SocmedCellId" rowHeight="50" id="9zl-ak-0aU" customClass="ProfileSocmedViewCell" customModule="Movreak" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9zl-ak-0aU" id="X3P-Tf-Izj">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_facebook" translatesAutoresizingMaskIntoConstraints="NO" id="jeT-eS-rMW">
+                        <rect key="frame" x="30" y="12.5" width="26" height="26"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNG-MN-6nk">
+                        <rect key="frame" x="304" y="12.5" width="41" height="26"/>
+                        <state key="normal" image="icn_switch_off"/>
+                        <connections>
+                            <action selector="switchButtonTapped:" destination="9zl-ak-0aU" eventType="touchUpInside" id="sRz-sN-EBH"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h55-ua-fsb">
+                        <rect key="frame" x="71" y="0.0" width="218" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="VZP-Tt-5fa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="CoreSansR35Regular" family="Core Sans R" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Il8-2k-hYS">
+                        <rect key="frame" x="0.0" y="50" width="375" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="UAO-py-EId"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="aNG-MN-6nk" secondAttribute="trailing" constant="30" id="A49-v6-zLG"/>
+                    <constraint firstItem="aNG-MN-6nk" firstAttribute="leading" secondItem="h55-ua-fsb" secondAttribute="trailing" constant="15" id="SQg-QD-tQ0"/>
+                    <constraint firstItem="Il8-2k-hYS" firstAttribute="top" secondItem="h55-ua-fsb" secondAttribute="bottom" id="Sx7-s1-vfH"/>
+                    <constraint firstItem="jeT-eS-rMW" firstAttribute="centerY" secondItem="X3P-Tf-Izj" secondAttribute="centerY" id="SxE-UM-ck3"/>
+                    <constraint firstAttribute="trailing" secondItem="Il8-2k-hYS" secondAttribute="trailing" id="Xsf-vC-i43"/>
+                    <constraint firstItem="Il8-2k-hYS" firstAttribute="leading" secondItem="X3P-Tf-Izj" secondAttribute="leading" id="b7E-0z-7Qv"/>
+                    <constraint firstAttribute="bottom" secondItem="Il8-2k-hYS" secondAttribute="bottom" id="bE8-r3-7CC"/>
+                    <constraint firstItem="jeT-eS-rMW" firstAttribute="leading" secondItem="X3P-Tf-Izj" secondAttribute="leading" constant="30" id="c9S-3V-osm"/>
+                    <constraint firstItem="aNG-MN-6nk" firstAttribute="centerY" secondItem="X3P-Tf-Izj" secondAttribute="centerY" id="d5b-iY-Oxv"/>
+                    <constraint firstItem="h55-ua-fsb" firstAttribute="top" secondItem="X3P-Tf-Izj" secondAttribute="top" id="egP-HJ-tKp"/>
+                    <constraint firstItem="h55-ua-fsb" firstAttribute="leading" secondItem="jeT-eS-rMW" secondAttribute="trailing" constant="15" id="ghE-Ye-C1i"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="iconImageView" destination="jeT-eS-rMW" id="MRb-2I-fQK"/>
+                <outlet property="nameLabel" destination="h55-ua-fsb" id="7Y7-es-IBe"/>
+                <outlet property="separatorView" destination="Il8-2k-hYS" id="mzL-sV-Ni7"/>
+                <outlet property="separatorViewLeadingConstraint" destination="b7E-0z-7Qv" id="YPs-Yy-LnR"/>
+                <outlet property="switchButton" destination="aNG-MN-6nk" id="oQi-go-auv"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="122.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icn_facebook" width="26" height="26"/>
+        <image name="icn_switch_off" width="41" height="26"/>
+    </resources>
+</document>

@@ -1,0 +1,6 @@
+framework module RDGliderViewController_Swift {
+  umbrella header "RDGliderViewController-Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}

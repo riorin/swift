@@ -1,0 +1,6 @@
+framework module Pods_MovreakTests {
+  umbrella header "Pods-MovreakTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
